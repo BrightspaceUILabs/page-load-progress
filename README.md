@@ -60,7 +60,7 @@ By default, the progress bar will be grayscale. However, the color can be custom
 <d2l-page-load-progress color="#d81b60"></d2l-page-load-progress>
 ```
 
-[bower-url]: http://bower.io/search/?q=ui-navigation
-[bower-image]: https://img.shields.io/bower/v/ui-navigation.svg
-[ci-url]: https://travis-ci.org/Brightspace/ui-page-load-progress
-[ci-image]: https://travis-ci.org/Brightspace/ui-page-load-progress.svg?branch=master
+[bower-url]: http://bower.io/search/?q=d2l-page-load-progress
+[bower-image]: https://img.shields.io/bower/v/d2l-page-load-progress.svg
+[ci-url]: https://travis-ci.org/Brightspace/d2l-page-load-progress-ui
+[ci-image]: https://travis-ci.org/Brightspace/d2l-page-load-progress-ui.svg?branch=master
