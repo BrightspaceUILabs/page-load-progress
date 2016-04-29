@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>page-load-progress tests</title>
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+		<script src="../../web-component-tester/browser.js"></script>
+		<link rel="import" href="../d2l-page-load-progress.html">
+	</head>
+	<body>
+
+		<test-fixture id="NoColor">
+			<template>
+				<d2l-page-load-progress></d2l-page-load-progress>
+			</template>
+		</test-fixture>
+
+		<test-fixture id="ColorSet">
+			<template>
+				<d2l-page-load-progress color="#ff0000"></d2l-page-load-progress>
+			</template>
+		</test-fixture>
+
+		<script>
+			describe('No Color', function() {
+
+				var progress;
+
+				beforeEach(function() {
+					progress = fixture('NoColor');
+				});
+
+				it('should default property to "pressicus"', function() {
+					expect(progress.color).to.eql('#b9c2d0');
+				});
+
+			});
+			describe('Color Set', function() {
+
+				var progress;
+
+				beforeEach(function() {
+					progress = fixture('ColorSet');
+				});
+
+				it('should set property when attribute is set', function() {
+					expect(progress.color).to.eql('#ff0000');
+				});
+
+				it('should update property when attribute is changed', function() {
+					progress.setAttribute('color', '#00ff00');
+					expect(progress.color).to.eql('#00ff00');
+				});
+
+				it('should update attribute when property is changed', function() {
+					progress.color = '#00ff00';
+					expect(progress.getAttribute('color')).to.eql('#00ff00');
+				});
+
+			});
+		</script>
+	</body>
+</html>
