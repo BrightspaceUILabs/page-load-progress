@@ -21,6 +21,5 @@
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
     "web-component-tester": "*",
     "webcomponentsjs": "^0.7.21"
-  },
-  "private": true
+  }
 }
