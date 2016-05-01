@@ -22,6 +22,12 @@
 			</template>
 		</test-fixture>
 
+		<test-fixture id="autostart">
+			<template>
+				<d2l-page-load-progress autostart></d2l-page-load-progress>
+			</template>
+		</test-fixture>
+
 		<script>
 			describe('No Color', function() {
 
@@ -33,6 +39,10 @@
 
 				it('should default property to "pressicus"', function() {
 					expect(progress.color).to.eql('#b9c2d0');
+				});
+
+				it('should not automatically start', function() {
+					expect(progress._inProgress).to.be.false;
 				});
 
 			});
@@ -56,6 +66,19 @@
 				it('should update attribute when property is changed', function() {
 					progress.color = '#00ff00';
 					expect(progress.getAttribute('color')).to.eql('#00ff00');
+				});
+
+			});
+			describe('autostart', function() {
+
+				var progress;
+
+				beforeEach(function() {
+					progress = fixture('autostart');
+				});
+
+				it('should automatically start', function() {
+					expect(progress._inProgress).to.be.true;
 				});
 
 			});

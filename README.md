@@ -2,7 +2,7 @@
 [![Bower version][bower-image]][bower-url]
 [![Build status][ci-image]][ci-url]
 
-A [Polymer](https://www.polymer-project.org/1.0/)-based web component progress bar. It loads quickly at first, then slower and slower until you tell it things are ready.
+A [Polymer](https://www.polymer-project.org/1.0/)-based web component progress indicator. Loading quickly at first, then slower and slower until you tell it things are loaded.
 
 ## Installation
 
@@ -34,7 +34,7 @@ The custom element `<d2l-page-load-progress>` can now be used in your page. The 
 
 ### Starting & Finishing
 
-The progress bar can be started, restarted and finished using its JavaScript API's `start()` and `finish()` methods. Make sure you wait for the `WebComponentsReady` event before interacting with it.
+Progress can be started, restarted and finished using its JavaScript API's `start()` and `finish()` methods. Make sure you wait for the `WebComponentsReady` event before interacting with it.
 
 ```javascript
 window.addListener('WebComponentsReady', function() {
@@ -50,11 +50,15 @@ window.addListener('WebComponentsReady', function() {
 })
 ```
 
-## Properties
+To start **automatically**, set the `autostart` attribute:
+
+```html
+<d2l-page-load-progress autostart></d2l-page-load-progress>
+```
 
 ### Color
 
-By default, the progress bar will be grayscale. However, the color can be customized using the `color` property:
+By default, the progress bar will be grayscale. However, the color can be customized using the `color` attribute:
 
 ```html
 <d2l-page-load-progress color="#d81b60"></d2l-page-load-progress>

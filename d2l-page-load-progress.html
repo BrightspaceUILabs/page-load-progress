@@ -29,6 +29,10 @@
 	Polymer({
 		is: 'd2l-page-load-progress',
 		properties: {
+			autostart: {
+				type: Boolean,
+				reflectToAttribute: true
+			},
 			color: {
 				type: String,
 				observer: '_colorChanged',
@@ -57,6 +61,11 @@
 				);
 			if (width) {
 				div.style.width = width;
+			}
+		},
+		ready: function() {
+			if (this.autostart) {
+				this.start();
 			}
 		},
 		finish: function() {
