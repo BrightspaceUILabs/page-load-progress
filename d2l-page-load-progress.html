@@ -38,10 +38,6 @@
 				observer: '_colorChanged',
 				reflectToAttribute: true,
 				value: '#b9c2d0'
-			},
-			_inProgress: {
-				type: Boolean,
-				value: false
 			}
 		},
 		_colorChanged: function(newValue) {
@@ -59,9 +55,9 @@
 					fast,
 					div
 				);
-			if (width) {
+			this.async(function() {
 				div.style.width = width;
-			}
+			}, 0);
 		},
 		ready: function() {
 			if (this.autostart) {
@@ -72,25 +68,10 @@
 			this._toggle(false, true, '100%');
 		},
 		start: function() {
-
-			var div = this.$$('div');
-
 			this._toggle(false, false, '0%');
-
-			if (this._inProgress) {
-				this._inProgress = false;
-				this.async(this.start, 100);
-				return;
-			}
-
-			this._toggle(true, false);
-			this._inProgress = true;
 			this.async(function() {
-				if (this._inProgress) {
-					div.style.width = '99%';
-				}
+				this._toggle(true, false, '99%');
 			}.bind(this), 100);
-
 		}
 	});
 </script>
