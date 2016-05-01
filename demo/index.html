@@ -29,7 +29,7 @@
 		</style>
 	</head>
 	<body unresolved>
-		<d2l-page-load-progress id="progress" color="#003b71"></d2l-page-load-progress>
+		<d2l-page-load-progress id="progress" color="#003b71" autostart></d2l-page-load-progress>
 		<main>
 			<div style="margin-bottom:20px;">
 				<label>
@@ -54,7 +54,6 @@
 			document.getElementById('color').addEventListener('change', function() {
 				progress.setAttribute('color', this.value);
 			});
-			progress.start();
 		});
 		</script>
 	</body>
