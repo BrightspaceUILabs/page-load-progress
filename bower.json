@@ -14,8 +14,8 @@
     "/test/"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.0.0",
-    "vui-colors": "^1.0.1"
+    "d2l-colors": "~2.0.0",
+    "polymer": "Polymer/polymer#^1.5.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
