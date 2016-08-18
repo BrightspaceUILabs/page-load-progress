@@ -37,7 +37,7 @@ The custom element `<d2l-page-load-progress>` can now be used in your page. The 
 Progress can be started, restarted and finished using its JavaScript API's `start()` and `finish()` methods. Make sure you wait for the `WebComponentsReady` event before interacting with it.
 
 ```javascript
-window.addListener('WebComponentsReady', function() {
+window.addEventListener('WebComponentsReady', function() {
 
 	var progress = document.getElementById('myProgress');
 	progress.start();
@@ -47,7 +47,7 @@ window.addListener('WebComponentsReady', function() {
 		progress.finish();
 	}, 2000);
 
-})
+});
 ```
 
 To start **automatically**, set the `autostart` attribute:
