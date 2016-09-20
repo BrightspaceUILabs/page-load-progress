@@ -38,6 +38,11 @@
 				observer: '_colorChanged',
 				reflectToAttribute: true,
 				value: '#b9c2d0'
+			},
+			width: {
+				type: Number,
+				readOnly: true,
+				value: 0
 			}
 		},
 		_colorChanged: function(newValue) {
@@ -55,8 +60,9 @@
 					fast,
 					div
 				);
+			this._setWidth(width);
 			this.async(function() {
-				div.style.width = width;
+				div.style.width = (width + '%');
 			}, 0);
 		},
 		ready: function() {
@@ -65,12 +71,14 @@
 			}
 		},
 		finish: function() {
-			this._toggle(false, true, '100%');
+			this._toggle(false, true, 100);
 		},
 		start: function() {
-			this._toggle(false, false, '0%');
+			this._toggle(false, false, 0);
 			this.async(function() {
-				this._toggle(true, false, '99%');
+				if (this.width === 0) {
+					this._toggle(true, false, 99);
+				}
 			}.bind(this), 100);
 		}
 	});
