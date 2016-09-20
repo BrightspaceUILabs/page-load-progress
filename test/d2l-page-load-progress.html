@@ -64,6 +64,46 @@
 					expect(progress.getAttribute('color')).to.eql('#00ff00');
 				});
 
+				it('should not auto-start', function() {
+					expect(progress.width).to.eql(0);
+				});
+
+				it('should go to 100% when finish is called', function() {
+					progress.finish();
+					expect(progress.width).to.eql(100);
+				});
+
+			});
+			describe('Auto Start', function() {
+
+				var progress, clock;
+
+				beforeEach(function() {
+					clock = sinon.useFakeTimers();
+					progress = fixture('autostart');
+				});
+
+				afterEach(function() {
+					clock.restore();
+				});
+
+				it('should start on its own after 100ms', function() {
+					clock.tick(100);
+					expect(progress.width).to.eql(99);
+				});
+
+				it('should not go to 99% if finish() is called first', function() {
+					progress.finish();
+					clock.tick(100);
+					expect(progress.width).to.eql(100);
+				});
+
+				it('should go to 100% if finish() is called after', function() {
+					clock.tick(100);
+					progress.finish();
+					expect(progress.width).to.eql(100);
+				});
+
 			});
 		</script>
 	</body>
