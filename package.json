@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Brightspace/d2l-page-load-progress-ui.git"
+    "url": "https://github.com/BrightspaceUI/page-load-progress.git"
   },
   "author": "D2L Corporation",
   "license": "Apache 2.0",
