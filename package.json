@@ -3,9 +3,10 @@
   "private": true,
   "scripts": {
     "postinstall": "bower install",
-    "test": "npm run test:lint:js && npm run test:lint:wc && wct --skip-plugin sauce",
-    "test:lint:js": "eslint *.html",
-    "test:lint:wc": "polylint"
+    "test:lint:es": "eslint *.html demo/*.html test/*.html",
+    "test:lint:wc": "polymer lint -i d2l-page-load-progress.html",
+    "test:lint": "npm run test:lint:es && npm run test:lint:wc",
+    "test": "npm run test:lint && polymer test --skip-plugin sauce"
   },
   "repository": {
     "type": "git",
@@ -15,9 +16,9 @@
   "license": "Apache 2.0",
   "devDependencies": {
     "bower": "^1.7.9",
-    "eslint": "^2.9.0",
-    "eslint-plugin-html": "^1.4.0",
-    "polylint": "^2.10.1",
-    "web-component-tester": "^4.2.2"
+    "eslint": "^3.7.1",
+    "eslint-config-brightspace": "^0.2.4",
+    "eslint-plugin-html": "^1.5.3",
+    "polymer-cli": "^0.16.0"
   }
 }
