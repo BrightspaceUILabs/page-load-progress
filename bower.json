@@ -7,7 +7,7 @@
   "keywords": [],
   "main": "d2l-page-load-progress.html",
   "license": "Apache-2.0",
-  "homepage": "https://github.com/Brightspace/d2l-page-load-progress-ui/",
+  "homepage": "https://github.com/BrightspaceUI/page-load-progress/",
   "ignore": [
     "/.*",
     "package.json",
