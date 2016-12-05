@@ -28,6 +28,7 @@
 <script>
 	Polymer({
 		is: 'd2l-page-load-progress',
+
 		properties: {
 			autostart: {
 				type: Boolean,
@@ -44,9 +45,30 @@
 				value: 0
 			}
 		},
+
+		attached: function() {
+			if (this.autostart) {
+				this.start();
+			}
+		},
+
+		finish: function() {
+			this._toggle(false, true, 100);
+		},
+
+		start: function() {
+			this._toggle(false, false, 0);
+			this.async(function() {
+				if (this.width === 0) {
+					this._toggle(true, false, 99);
+				}
+			}.bind(this), 100);
+		},
+
 		_colorChanged: function(newValue) {
 			this.$$('div').style.backgroundColor = newValue;
 		},
+
 		_toggle: function(slow, fast, width) {
 			var div = this.$$('div');
 			this.toggleClass(
@@ -63,22 +85,7 @@
 			this.async(function() {
 				div.style.width = (width + '%');
 			}, 0);
-		},
-		attached: function() {
-			if (this.autostart) {
-				this.start();
-			}
-		},
-		finish: function() {
-			this._toggle(false, true, 100);
-		},
-		start: function() {
-			this._toggle(false, false, 0);
-			this.async(function() {
-				if (this.width === 0) {
-					this._toggle(true, false, 99);
-				}
-			}.bind(this), 100);
 		}
+
 	});
 </script>
