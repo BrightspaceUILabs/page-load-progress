@@ -18,8 +18,8 @@
     "polymer": "^1.5.0"
   },
   "devDependencies": {
+    "d2l-demo-template": "~0.0.8",
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
-    "web-component-tester": "*",
-    "webcomponentsjs": "^0.7.21"
+    "web-component-tester": "*"
   }
 }
