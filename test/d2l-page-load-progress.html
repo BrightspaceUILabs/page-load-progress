@@ -37,8 +37,8 @@
 					progress = fixture('NoColor');
 				});
 
-				it('should default property to "pressicus"', function() {
-					expect(progress.color).to.eql('#b9c2d0');
+				it('should default property to undefined', function() {
+					expect(progress.color).to.not.be.defined;
 				});
 
 			});
