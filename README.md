@@ -1,8 +1,13 @@
 # d2l-page-load-progress
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/BrightspaceUI/page-load-progress)
 [![Bower version][bower-image]][bower-url]
 [![Build status][ci-image]][ci-url]
 
-A [Polymer](https://www.polymer-project.org/1.0/)-based web component progress indicator. Loading quickly at first, then slower and slower until you tell it things are loaded.
+[Polymer](https://www.polymer-project.org)-based web component progress indicator. Loading quickly at first, then slower and slower until you tell it things are loaded.
+
+![screenshot of page load progress](/screenshot.gif?raw=true)
+
+For further information on this and other Brightspace UI components, see the docs at [ui.developers.brightspace.com](http://ui.developers.brightspace.com/).
 
 ## Installation
 
@@ -17,8 +22,8 @@ Include the [webcomponents.js](http://webcomponents.org/polyfills/) "lite" polyf
 
 ```html
 <head>
-	<script src="https://s.brightspace.com/lib/webcomponentsjs/0.7.21/webcomponents-lite.min.js"></script>
-	<link rel="import" href="../d2l-page-load-progress/d2l-page-load-progress.html">
+	<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+	<link rel="import" href="bower_components/d2l-page-load-progress/d2l-page-load-progress.html">
 </head>
 ```
 

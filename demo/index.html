@@ -1,47 +1,51 @@
-<html>
-<head>
-	<title>d2l-page-load-progress</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="https://s.brightspace.com/lib/webcomponentsjs/0.7.21/webcomponents.min.js"></script>
-	<link rel="import" href="../../d2l-demo-template/d2l-demo-template.html">
-	<link rel="import" href="../d2l-page-load-progress.html">
-</head>
-<body unresolved>
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+		<title>d2l-page-load-progress demo</title>
+		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+		<link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+		<link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+		<link rel="import" href="../d2l-page-load-progress.html">
+		<custom-style>
+			<style is="custom-style" include="demo-pages-shared-styles"></style>
+		</custom-style>
+	</head>
+	<body unresolved>
+		<div class="vertical-section-container centered">
 
-	<d2l-demo-template title="d2l-page-load-progress">
+			<h3>Basic with autostart</h3>
+			<demo-snippet>
+				<template>
+					<d2l-page-load-progress autostart></d2l-page-load-progress>
+				</template>
+			</demo-snippet>
 
-		<div class="d2l-demo-actions">
-			<div style="margin-bottom:20px;">
-				<label>
-					Color<br />
-					<input type="text" id="color" value="#003b71" />
-				</label>
-			</div>
-			<div>
-				<button id="start">Start</button>
-				<button id="finish">Finish</button>
-			</div>
+			<h3>Custom Color</h3>
+			<demo-snippet>
+				<template>
+					<d2l-page-load-progress color="#003b71" autostart></d2l-page-load-progress>
+				</template>
+			</demo-snippet>
+
+			<h3>Interactive</h3>
+			<demo-snippet>
+				<template>
+					<d2l-page-load-progress id="interactive"></d2l-page-load-progress><br>
+					<button id="start">Start</button>
+					<button id="finish">Finish</button>
+					<script>
+					var progress = document.getElementById('interactive');
+					document.getElementById('start').addEventListener('click', function() {
+						progress.start();
+					});
+					document.getElementById('finish').addEventListener('click', function() {
+						progress.finish();
+					});
+					</script>
+				</template>
+			</demo-snippet>
 		</div>
-
-		<div class="d2l-demo-fixture">
-			<d2l-page-load-progress id="progress" color="#003b71" autostart></d2l-page-load-progress>
-		</div>
-
-	</d2l-demo-template>
-
-	<script>
-		addEventListener('WebComponentsReady', function() {
-			var progress = document.getElementById('progress');
-			document.getElementById('start').addEventListener('click', function() {
-				progress.start();
-			});
-			document.getElementById('finish').addEventListener('click', function() {
-				progress.finish();
-			});
-			document.getElementById('color').addEventListener('change', function() {
-				progress.setAttribute('color', this.value);
-			});
-		});
-	</script>
-</body>
+	</body>
 </html>
