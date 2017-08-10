@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>page-load-progress tests</title>
+		<title>d2l-page-load-progress tests</title>
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 		<script src="../../web-component-tester/browser.js"></script>
@@ -10,13 +10,13 @@
 	</head>
 	<body>
 
-		<test-fixture id="NoColor">
+		<test-fixture id="basic">
 			<template>
 				<d2l-page-load-progress></d2l-page-load-progress>
 			</template>
 		</test-fixture>
 
-		<test-fixture id="ColorSet">
+		<test-fixture id="color-set">
 			<template>
 				<d2l-page-load-progress color="#ff0000"></d2l-page-load-progress>
 			</template>
@@ -29,82 +29,172 @@
 		</test-fixture>
 
 		<script>
-			describe('No Color', function() {
+			var elem;
 
-				var progress;
+			describe('basic', function() {
 
 				beforeEach(function() {
-					progress = fixture('NoColor');
+					elem = fixture('basic');
 				});
 
-				it('should default property to undefined', function() {
-					expect(progress.color).to.not.be.defined;
+				it('should instantiate the element', function() {
+					expect(elem.is).to.equal('d2l-page-load-progress');
 				});
 
 			});
-			describe('Color Set', function() {
 
-				var progress;
+			describe('autostart', function() {
 
-				beforeEach(function() {
-					progress = fixture('ColorSet');
-				});
-
-				it('should set property when attribute is set', function() {
-					expect(progress.color).to.eql('#ff0000');
-				});
-
-				it('should update property when attribute is changed', function() {
-					progress.setAttribute('color', '#00ff00');
-					expect(progress.color).to.eql('#00ff00');
-				});
-
-				it('should update attribute when property is changed', function() {
-					progress.color = '#00ff00';
-					expect(progress.getAttribute('color')).to.eql('#00ff00');
-				});
-
-				it('should not auto-start', function() {
-					expect(progress.width).to.eql(0);
-				});
-
-				it('should go to 100% when finish is called', function() {
-					progress.finish();
-					expect(progress.width).to.eql(100);
-				});
-
-			});
-			describe('Auto Start', function() {
-
-				var progress, clock;
+				var clock;
 
 				beforeEach(function() {
 					clock = sinon.useFakeTimers();
-					progress = fixture('autostart');
 				});
 
 				afterEach(function() {
 					clock.restore();
 				});
 
-				it('should start on its own after 100ms', function() {
-					clock.tick(100);
-					expect(progress.width).to.eql(99);
+				describe('default', function() {
+
+					beforeEach(function() {
+						elem = fixture('basic');
+					});
+
+					it('should default "autostart" to false', function() {
+						expect(elem.autostart).to.be.false;
+						expect(elem.hasAttribute('autostart')).to.be.false;
+						expect(elem.__width).to.eql(0);
+					});
+
+					it('should reflect "autostart" property change to attribute', function() {
+						elem.autostart = true;
+						clock.tick(100);
+						expect(elem.hasAttribute('autostart')).to.be.true;
+						expect(elem.__width).to.eql(99);
+					});
+
+					it('should reflect "autostart" attribute change to property', function() {
+						elem.setAttribute('autostart', 'autostart');
+						clock.tick(100);
+						expect(elem.autostart).to.be.true;
+						expect(elem.__width).to.eql(99);
+					});
+
+					it('should start when start() is called after 100ms', function() {
+						elem.start();
+						clock.tick(100);
+						expect(elem.__width).to.eql(99);
+					});
+
+					it('should not go to 99% if finish() is called first', function() {
+						elem.start();
+						elem.finish();
+						clock.tick(100);
+						expect(elem.__width).to.eql(100);
+					});
+
 				});
 
-				it('should not go to 99% if finish() is called first', function() {
-					progress.finish();
-					clock.tick(100);
-					expect(progress.width).to.eql(100);
-				});
+				describe('set', function() {
 
-				it('should go to 100% if finish() is called after', function() {
-					clock.tick(100);
-					progress.finish();
-					expect(progress.width).to.eql(100);
+					beforeEach(function() {
+						elem = fixture('autostart');
+					});
+
+					it('should start on its own after 100ms', function() {
+						clock.tick(100);
+						expect(elem.__width).to.eql(99);
+					});
+
+					it('should go to 100% if finish() is called after', function() {
+						clock.tick(100);
+						elem.finish();
+						expect(elem.__width).to.eql(100);
+					});
+
+					it('should have "autostart" set to true', function() {
+						expect(elem.autostart).to.be.true;
+						expect(elem.hasAttribute('autostart')).to.be.true;
+						clock.tick(100);
+						expect(elem.__width).to.eql(99);
+					});
+
+					it('should reflect "autostart" property change to attribute', function() {
+						elem.autostart = false;
+						expect(elem.hasAttribute('autostart')).to.be.false;
+					});
+
+					it('should reflect "autostart" attribute change to property', function() {
+						elem.removeAttribute('autostart');
+						expect(elem.autostart).to.be.false;
+					});
+
 				});
 
 			});
+
+			describe('color', function() {
+
+				describe('default', function() {
+
+					beforeEach(function() {
+						elem = fixture('basic');
+					});
+
+					it('should default "color" to undefined', function() {
+						expect(elem.color).to.not.be.defined;
+						expect(elem.hasAttribute('color')).to.be.false;
+					});
+
+					it('should reflect "color" property change to attribute', function() {
+						elem.color = '#ff0000';
+						expect(elem.getAttribute('color')).to.equal('#ff0000');
+					});
+
+					it('should reflect "color" attribute change to property', function() {
+						elem.setAttribute('color', '#00ff00');
+						expect(elem.color).to.equal('#00ff00');
+					});
+
+				});
+
+				describe('set', function() {
+
+					beforeEach(function() {
+						elem = fixture('color-set');
+					});
+
+					it('should have "color" set to "#ff0000"', function() {
+						expect(elem.color).to.equal('#ff0000');
+						expect(elem.getAttribute('color')).to.equal('#ff0000');
+					});
+
+					it('should reflect "color" property change to attribute', function() {
+						elem.color = '#00ff00';
+						expect(elem.getAttribute('color')).to.equal('#00ff00');
+					});
+
+					it('should reflect "color" attribute change to property', function() {
+						elem.setAttribute('color', '#0000ff');
+						expect(elem.color).to.equal('#0000ff');
+					});
+
+				});
+
+			});
+
+			describe('starting and finishing', function() {
+				it('should not auto-start', function() {
+					expect(elem.__width).to.eql(0);
+				});
+
+				it('should go to 100% when finish is called', function() {
+					elem.finish();
+					expect(elem.__width).to.eql(100);
+				});
+			});
+
 		</script>
 	</body>
 </html>
