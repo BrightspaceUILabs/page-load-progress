@@ -53,7 +53,7 @@ The custom element `<d2l-page-load-progress>` can now be used in your page. The 
       }
     </style>
     <script>
-      var progress = document.getElementById('interactive');
+      var progress = document.querySelector('d2l-page-load-progress');
       document.getElementById('start').addEventListener('click', function() {
         progress.start();
       });
