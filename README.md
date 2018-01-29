@@ -52,15 +52,6 @@ The custom element `<d2l-page-load-progress>` can now be used in your page. The 
         line-height: 1.4rem;
       }
     </style>
-    <script>
-      var progress = document.querySelector('d2l-page-load-progress');
-      document.getElementById('start').addEventListener('click', function() {
-        progress.start();
-      });
-      document.getElementById('finish').addEventListener('click', function() {
-        progress.finish();
-      });
-    </script>
     <next-code-block></next-code-block>
   </template>
 </custom-element-demo>
@@ -68,8 +59,8 @@ The custom element `<d2l-page-load-progress>` can now be used in your page. The 
 -->
 ```html
 <d2l-page-load-progress autostart color="#003b71"></d2l-page-load-progress>
-<button id="start">Start</button>
-<button id="finish">Finish</button>
+<button onclick="document.querySelector('d2l-page-load-progress').start();">Start</button>
+<button onclick="document.querySelector('d2l-page-load-progress').finish();">Finish</button>
 <main>
   Main page content here.
 </main>
