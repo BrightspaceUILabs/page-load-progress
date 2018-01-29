@@ -37,7 +37,9 @@ Polymer-based web component progress bar for the page load status
 	<script>
 		Polymer({
 			is: 'd2l-page-load-progress',
+
 			properties: {
+
 				/**
 				 * Whether the progress bar should automatically begin loading.
 				 */
@@ -47,6 +49,7 @@ Polymer-based web component progress bar for the page load status
 					reflectToAttribute: true,
 					value: false
 				},
+
 				/**
 				 * Overrides the default color.
 				 */
@@ -55,22 +58,27 @@ Polymer-based web component progress bar for the page load status
 					observer: '_colorChanged',
 					reflectToAttribute: true
 				},
+
 				__width: {
 					type: Number,
 					value: 0
 				}
+
 			},
+
 			ready: function() {
 				if (this.autostart) {
 					this.start();
 				}
 			},
+
 			/**
 			 * Completes the progress bar animation, moving it quickly to 100%.
 			 */
 			finish: function() {
 				this._toggle(false, true, 100);
 			},
+
 			/**
 			 * Starts or restarts the progress bar animation.
 			 */
@@ -82,14 +90,17 @@ Polymer-based web component progress bar for the page load status
 					}
 				}.bind(this), 100);
 			},
+
 			_autoStartChanged: function(newValue) {
 				if (newValue) {
 					this.start();
 				}
 			},
+
 			_colorChanged: function(newValue) {
 				this.$$('.d2l-page-load-progress-bar').style.backgroundColor = newValue;
 			},
+
 			_toggle: function(slow, fast, width) {
 				var div = this.$$('.d2l-page-load-progress-bar');
 				this.toggleClass(
@@ -105,6 +116,7 @@ Polymer-based web component progress bar for the page load status
 				this.__width = width;
 				div.style.transform = 'translate(-' + (100 - width) + '%,0)';
 			}
+
 		});
 	</script>
 </dom-module>
