@@ -22,19 +22,29 @@ Include the [webcomponents.js](http://webcomponents.org/polyfills/) "lite" polyf
 
 ```html
 <head>
-	<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
-	<link rel="import" href="bower_components/d2l-page-load-progress/d2l-page-load-progress.html">
+  <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="../d2l-page-load-progress/d2l-page-load-progress.html">
 </head>
 ```
 
 The custom element `<d2l-page-load-progress>` can now be used in your page. The best place for it is usually at the very top:
+
+<!---
+```
+<custom-element-demo>
+  <template>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="d2l-page-load-progress.html">
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+-->
 ```html
-<body>
-	<d2l-page-load-progress></d2l-page-load-progress>
-	<main>
-		Main page content here.
-	</main>
-</body>
+<d2l-page-load-progress autostart></d2l-page-load-progress>
+<main>
+  Main page content here.
+</main>
 ```
 
 ### Starting & Finishing
@@ -44,13 +54,13 @@ Progress can be started, restarted and finished using its JavaScript API's `star
 ```javascript
 window.addEventListener('WebComponentsReady', function() {
 
-	var progress = document.getElementById('myProgress');
-	progress.start();
+  var progress = document.getElementById('myProgress');
+  progress.start();
 
-	// take 2 seconds to "load"
-	setTimeout(function() {
-		progress.finish();
-	}, 2000);
+  // take 2 seconds to "load"
+  setTimeout(function() {
+    progress.finish();
+  }, 2000);
 
 });
 ```
