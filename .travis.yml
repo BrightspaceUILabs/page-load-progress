@@ -1,14 +1,18 @@
 language: node_js
 node_js: node
-script:
-- npm run test:lint
-- polymer test --skip-plugin local
 addons:
-  sauce_connect: true
-  jwt:
-    # SAUCE_ACCESS_KEY
-    secure: R/t4VqrKU1VL8ktXlqmD/tw9H0lv3x0sxUDgOEf5vW3IsVDfp26luLZ698PMXbaFHmJ4X23kOrE/nrIDB1RG56pzWy9dLn46SBUekWpp85A8N+LfkjYOzo2FjYGZo0U0bZYAbyJ2th5maqw35KowWqxO4gLG6wk2boDokhTmVOFLHyCDcCsuEdrtr2Cp9POGJJoYqYNEu0KjBg789uQPpgsVShYOVAVFxBrV9UmrxvHCJa0jJhKV+TJXcGETAIpkfPSjMFesM6bCA223bBmKcgbjfAIYZ5V56QuwWu5bFekx+Yrbmt4zW+CDjqbCpc0GmfXwVxi4WSKY2a8ONTvhlut/WQtuCQrLMGvkZu65a38t7GlkcUaLWjkfZy2Q4x/nRL8/EBEb5WNBnUCvGdFejxE+6GxOzgUvJGA56qK8vrEkPYZSri3afzCmo3mNEULvLlV/z3oJiaouCRORDeC+ugucEvS2bujiscoZTUv4dT3wWMjpTf8pDqHTCoOCKsIMehVZcf4tzM2OILuPWmMBe4P7BOZLAvAHObpE3mmWxGJ4sC63yBKCsyj55/ksuLtnk1WCScvtWSssaIi5uAKcWLGFaFb6xrDNPRezgPHzoVNGbqJiA4HsfVO4veWF5MTKkxw0ljeENBXhXA9bhT+FWtjGDTN0G4RMr+x1P7yy2rk=
+  chrome: stable
+script:
+- npm run lint
+- |
+  if [ $TRAVIS_PULL_REQUEST != false ] && [ $TRAVIS_SECURE_ENV_VARS == true ]; then
+    echo "Pull request with secure environment variables, running Sauce tests...";
+    npm run test:polymer:sauce || travis_terminate 1;
+  else
+    echo "Not a pull request and/or no secure environment variables, running headless tests...";
+    npm run test:polymer:local || travis_terminate 1;
+  fi
 env:
   global:
-    # SAUCE_USERNAME
-    secure: YzQIq8r+bZMVi5L4+NXRCEAFW8hv7/6gFgxv9qcV5+j7VqpAcrnBGKenZLRm1Ig96SY9wGbQdJzKmGRHuzEIiDFNkiUhGs/BDTTsQjqTumKp3fhtI88ISTt6d+DLzw2ftmqyncbT7WL4NWE4AO02YOo6i85vWTNHEnfwmZ9xenfu/oMZfq7nxTbipNoJ26lS3yrACYpCm5ilhSRP7QmTICwXPODD+4zxByhbCyeVPgVta1JdbEcsdIWE/62D2d//zVTGH3n1wp9jyycrchetbfQ9Z6/PX6VdYdzlDlq5ixKI9+ndotjQqYnLloZbRnJHJ7wZv95TLXmFXRDuZwsuHyjkqQIVSWHf7MULU8RUxD6tTK0df1JfdBt1BjTrnT5nUxg+3Ofcq5L4fkDyMUz/Nj9y5C/cp6IHZf2Ulh627vauSQ7OGeYvfmoUzyanyH9e1wtBR5bxsyJeJeUax99/wqTjDHTCWCtJnozsZ98sGvLN1TIz0i6beiGtVTWWMtYcU/60SCILdYW7t2PgJ820TFubUI5Z1E7nH6J6Am9q9cExrgucIoOh6mjkOndhdXzI4miMZcS7PINUr2A/nzPbJS3LPQLmM58eQDst6sIZ19IKxhGXjc6Se8I5RrSJSYJTWY4pwLft+AXsTg1l9pFh/9wLp2kD0zVcwy5JRcMEMA8=
+  - SAUCE_USERNAME: Desire2Learn
+  - secure: ImOfyfbFTfpkcKcjBnHZWAT/VcI+hzpEawjIovrF8nm5q3JKUiC+b7Og3YO5GmsyJyMZwOB9BJM80yYoDlI9+aXo450CMY9OHpaJVA89uV/0jvmrGV+XtNFnrVZmoYlfBoJmrzuati7F4z9rRxudBWMPCJeZ172AZrR+Xe8l1lVAP8WOR99wRPvNAQQV54qZT+CB0eQxyUgfeBeS9sGKLQdj6rV/NoyxopRHkrcF+Fngzm2aSba/oaKFSUZuQ8iEbcs2hRLYCEI0ibByL4q59tSO6r3DWWcsPZSUvUFj0RzbQf4zDQPE6EA5Ftvh4j/NCW1dbI5FhpVZlkgsPfYAy6ifCWn2+dnlGLMzWbbixXjBGo29hyNfjOkW06fDTgUy45I2GUeEAz48/3tyUpLyE8PHL600Pj08QMNTKJkUHOczFXnY4xK9aihjB5b1sxEgbDUQN/4k/FffDJiu4MwWp/vObGHGYjrM9kqW9JtAMxEnHj8hHo5h2gzMu+YcPduWm/vvMskSHQLHFfeiK7IWH+sqt60epQSM8FAQ8dTG44Wvec77CsVmSnKEw62VSca0MKZ59p+lCVd+w5D2UYZbRDJl8wt1XwvP+Zd9/STcXscr1HWOlNZ+YeV/lxuSkwnenK7/l4OON+QCskmNRvs0cZswkdIbhR7kkfkPZD++dGE=
