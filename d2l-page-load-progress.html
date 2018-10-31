@@ -31,9 +31,6 @@ Polymer-based web component progress bar for the page load status
 			.d2l-page-load-progress-slow {
 				transition: transform 10s cubic-bezier(.16,1,.4,1);
 			}
-			.d2l-page-load-hidden {
-				display: none !important;
-			}
 		</style>
 		<div><div class="d2l-page-load-progress-bar"></div></div>
 	</template>
@@ -57,6 +54,15 @@ Polymer-based web component progress bar for the page load status
 				 * Whether the progress bar should automatically hide itself after loading.
 				 */
 				autohide: {
+					type: Boolean,
+					reflectToAttribute: true,
+					value: false
+				},
+
+				/**
+				 * Property for consumer-defined styling.
+				 */
+				hidden: {
 					type: Boolean,
 					reflectToAttribute: true,
 					value: false
@@ -134,11 +140,11 @@ Polymer-based web component progress bar for the page load status
 			},
 
 			_show: function() {
-				this.$$('.d2l-page-load-progress-bar').classList.remove('d2l-page-load-hidden');
+				this.hidden = false;
 			},
 
 			_hide: function() {
-				this.$$('.d2l-page-load-progress-bar').classList.add('d2l-page-load-hidden');
+				this.hidden = true;
 			}
 
 		});
