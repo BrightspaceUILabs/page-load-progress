@@ -207,20 +207,20 @@
 
 				it('should not add hidden class when finishing if autohide not set', function() {
 					elem.finish();
-					expect(elem.$$('.d2l-page-load-progress-bar').classList.contains('d2l-page-load-hidden')).to.be.false;
+					expect(elem.hidden).to.be.false;
 				});
 
 				it('should add hidden class when finishing if autohide set', function() {
 					elem.autohide = true;
 					elem.finish();
-					expect(elem.$$('.d2l-page-load-progress-bar').classList.contains('d2l-page-load-hidden')).to.be.true;
+					expect(elem.hidden).to.be.true;
 				});
 
 				it('should remove hidden class on calling start', function() {
 					elem.autohide = true;
 					elem.finish();
 					elem.start();
-					expect(elem.$$('.d2l-page-load-progress-bar').classList.contains('d2l-page-load-hidden')).to.be.false;
+					expect(elem.hidden).to.be.false;
 				});
 			});
 
