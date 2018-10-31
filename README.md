@@ -98,6 +98,14 @@ By default, the progress bar will be grayscale. However, the color can be custom
 <d2l-page-load-progress color="#d81b60"></d2l-page-load-progress>
 ```
 
+### Auto-hide
+
+The `autohide` property will set `display: hidden` on the progress bar when `finish` is called:
+
+```html
+<d2l-page-load-progress autohide></d2l-page-load-progress>
+```
+
 [bower-url]: http://bower.io/search/?q=d2l-page-load-progress
 [bower-image]: https://badge.fury.io/bo/d2l-page-load-progress.svg
 [ci-url]: https://travis-ci.org/BrightspaceUI/page-load-progress
