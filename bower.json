@@ -32,14 +32,14 @@
   "variants": {
     "1.x": {
       "dependencies": {
-        "polymer": "^1.9.2"
+        "polymer": "^1.9.3"
       },
       "resolutions": {
-        "webcomponentsjs": "^0.7"
+        "webcomponentsjs": "^v0.7.24"
       }
     }
   },
   "resolutions": {
-    "webcomponentsjs": "^1.0.0"
+    "webcomponentsjs": "^v1.0.5"
   }
 }
