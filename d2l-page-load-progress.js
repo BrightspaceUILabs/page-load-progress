@@ -11,7 +11,7 @@ Polymer-based web component progress bar for the page load status
 */
 import '@polymer/polymer/polymer-legacy.js';
 
-import 'd2l-colors/d2l-colors.js';
+import '@brightspace-ui/core/components/colors/colors.js';
 import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
 const $_documentContainer = document.createElement('template');
 
