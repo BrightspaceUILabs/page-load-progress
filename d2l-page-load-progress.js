@@ -1,5 +1,5 @@
 /**
-`d2l-page-load-progress`
+`d2l-labs-page-load-progress`
 Polymer-based web component progress bar for the page load status
 
 @demo demo/index.html
@@ -15,7 +15,7 @@ import '@brightspace-ui/core/components/colors/colors.js';
 import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
 const $_documentContainer = document.createElement('template');
 
-$_documentContainer.innerHTML = `<dom-module id="d2l-page-load-progress">
+$_documentContainer.innerHTML = `<dom-module id="d2l-labs-page-load-progress">
 	<template strip-whitespace="">
 		<style>
 			:host {
@@ -43,12 +43,12 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-page-load-progress">
 		</style>
 		<div><div class="d2l-page-load-progress-bar"></div></div>
 	</template>
-	
+
 </dom-module>`;
 
 document.head.appendChild($_documentContainer.content);
 Polymer({
-	is: 'd2l-page-load-progress',
+	is: 'd2l-labs-page-load-progress',
 
 	properties: {
 
