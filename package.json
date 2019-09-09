@@ -17,11 +17,11 @@
   "author": "D2L Corporation",
   "license": "Apache 2.0",
   "devDependencies": {
-    "eslint": "^6.3.0",
-    "eslint-config-brightspace": "^0.6.4",
-    "eslint-plugin-html": "^6.0.0",
-    "frau-ci": "^1.33.2",
-    "polymer-cli": "^1.7.7"
+    "eslint": "^6",
+    "eslint-config-brightspace": "^0.6",
+    "eslint-plugin-html": "^6",
+    "frau-ci": "^1",
+    "polymer-cli": "^1"
   },
   "version": "2.6.0"
 }
