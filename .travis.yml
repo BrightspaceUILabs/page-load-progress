@@ -15,9 +15,14 @@ script:
 after_success:
 - frauci-update-version -d=skip && export TRAVIS_TAG=$(frauci-get-version)
 deploy:
-  provider: releases
-  api_key: "$GITHUB_RELEASE_TOKEN"
+  provider: npm
+  email: d2ltravisdeploy@d2l.com
+  skip_cleanup: true
+  api_key:
+    # 5613......9102
+    secure: JW4Wc3YM7fHxmaSDa6gn3x2my/g41RHmlWkBjkY+YGZV+LQOs+jE0KXkNvfGPhpVqH8HsGzzcA78BU/4H/Jlel4wfzZuz6TGfJnxDb7swLlkC0DR5XH75qScCEBq2APpYLqSaVHXah3bw02cfZNMuQul96txvJcChpBk+hYc86RKjIQXx17mZqtNhsv4yHmDAUo8FhduSJN0Z69NIKwBJAoITawo0pyFmbLrxM4rV1CzOCB2PIDpc4yZGJ3rWmcMdQsvcflitvBNSp7oUIVksvRXdjA97LscLqUhI56pn5uBPr3IEBdSfNfOi+ZxVlMoa6tgCPfPJplFPPLcrdSHLcr79DHfMgblg4+ivmGV+T+KJVKzVpAlmsM8f6IgTEpyKGt/yTqqCu6b3LOvN1qiWyo3FYr7u84SEQOUxT4nP7OPG4aSiQOeyQyHdUtqzMgxAKK+vq7k9R9fIgsIUPYXACOJNO7dudfFZMYrFf0aQ1vcotWIK6QpbR4Prj9KhWDmleXZ2TkP7NLa5hOAVx3GBmzTwzqM1hwHyNXUNFjFXq8R8DsefI3mtltlha+Uyl38TalMGQpmWzfIk/LPLRLRYn32a4Cl3MgR0bm7kBUste90wtKlnJwIkJGfg2ib+6wxhFzw2AIU92kmqnKJAjO92mv5jdyclEy/g8Dg1W6l+/Q=
   on:
+    repo: BrightspaceUILabs/page-load-progress
     tags: true
 env:
   global:
