@@ -4,11 +4,11 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 		<title>d2l-page-load-progress demo</title>
-		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-		<link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-		<link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-		<link rel="import" href="../../d2l-typography/d2l-typography.html">
-		<link rel="import" href="../d2l-page-load-progress.html">
+		<script src="../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+		<script type="module" src="../../@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
+		<script type="module" src="../../@polymer/iron-demo-helpers/demo-snippet.js"></script>
+		<script type="module" src="../../d2l-typography/d2l-typography.js"></script>
+		<script type="module" src="../d2l-page-load-progress.js"></script>
 		<custom-style>
 			<style is="custom-style" include="demo-pages-shared-styles"></style>
 		</custom-style>
@@ -27,14 +27,14 @@
 			<h3>Basic with autostart</h3>
 			<demo-snippet>
 				<template>
-					<d2l-page-load-progress autostart></d2l-page-load-progress>
+					<d2l-page-load-progress autostart=""></d2l-page-load-progress>
 				</template>
 			</demo-snippet>
 
 			<h3>Custom Color</h3>
 			<demo-snippet>
 				<template>
-					<d2l-page-load-progress color="#003b71" autostart></d2l-page-load-progress>
+					<d2l-page-load-progress color="#003b71" autostart=""></d2l-page-load-progress>
 				</template>
 			</demo-snippet>
 
@@ -45,13 +45,13 @@
 					<button id="start">Start</button>
 					<button id="finish">Finish</button>
 					<script>
-					var progress = document.getElementById('interactive');
-					document.getElementById('start').addEventListener('click', function() {
-						progress.start();
-					});
-					document.getElementById('finish').addEventListener('click', function() {
-						progress.finish();
-					});
+						var progress = document.getElementById('interactive');
+						document.getElementById('start').addEventListener('click', function() {
+							progress.start();
+						});
+						document.getElementById('finish').addEventListener('click', function() {
+							progress.finish();
+						});
 					</script>
 				</template>
 			</demo-snippet>
