@@ -1,5 +1,5 @@
 # d2l-page-load-progress
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/BrightspaceUI/page-load-progress)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/BrightspaceUI/page-load-progress) [![Greenkeeper badge](https://badges.greenkeeper.io/BrightspaceUILabs/page-load-progress.svg)](https://greenkeeper.io/)
 [![Bower version][bower-image]][bower-url]
 [![Build status][ci-image]][ci-url]
 
