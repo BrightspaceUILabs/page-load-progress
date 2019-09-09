@@ -1,7 +1,9 @@
 # d2l-page-load-progress
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/BrightspaceUI/page-load-progress) [![Greenkeeper badge](https://badges.greenkeeper.io/BrightspaceUILabs/page-load-progress.svg)](https://greenkeeper.io/)
-[![Bower version][bower-image]][bower-url]
-[![Build status][ci-image]][ci-url]
+
+[![NPM version](https://img.shields.io/npm/v/@brightspace-ui-labs/page-load-progress.svg)](https://www.npmjs.org/package/@brightspace-ui-labs/page-load-progress)
+[![NPM downloads](https://img.shields.io/npm/dt/@brightspace-ui-labs/page-load-progress.svg)](https://www.npmjs.com/package/@brightspace-ui-labs/page-load-progress)
+[![Greenkeeper badge](https://badges.greenkeeper.io/BrightspaceUILabs/page-load-progress.svg)](https://greenkeeper.io/)
+[![Build status](https://travis-ci.com/BrightspaceUILabs/page-load-status.svg?branch=master)](https://travis-ci.com/BrightspaceUILabs/page-load-status)
 
 [Polymer](https://www.polymer-project.org)-based web component progress indicator. Loading quickly at first, then slower and slower until you tell it things are loaded.
 
@@ -11,9 +13,9 @@ For further information on this and other components, refer to [The Brightspace 
 
 ## Installation
 
-Install from [Bower][bower-url]:
+To install from NPM:
 ```shell
-bower install d2l-page-load-progress
+npm install @brightspace-ui/page-load-progress
 ```
 
 ## Usage

@@ -1,10 +1,11 @@
 {
+  "name": "@brightspace-ui/page-load-progress",
+  "version": "2.6.0",
   "description": "Polymer-based web component progress bar for the page load status",
   "repository": {
     "type": "git",
-    "url": "https://github.com/BrightspaceUI/page-load-progress.git"
+    "url": "https://github.com/BrightspaceUILabs/page-load-progress.git"
   },
-  "name": "d2l-page-load-progress",
   "scripts": {
     "lint:js": "eslint . --ext .js,.html test/**/*.html demo/**/*.html",
     "lint:wc": "polymer lint",
@@ -30,7 +31,6 @@
     "polymer-cli": "^1.9.11",
     "wct-browser-legacy": "^1.0.1"
   },
-  "version": "2.6.0",
   "resolutions": {
     "inherits": "2.0.3",
     "samsam": "1.1.3",
