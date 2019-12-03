@@ -35,7 +35,7 @@
   },
   "main": "d2l-page-load-progress.js",
   "dependencies": {
-    "@brightspace-ui/core": "^1",
+    "@brightspace-ui/core": "1.19.1",
     "@polymer/polymer": "^3"
   }
 }
