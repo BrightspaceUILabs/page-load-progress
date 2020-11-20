@@ -1,6 +1,6 @@
 {
   "name": "@brightspace-ui-labs/page-load-progress",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Polymer-based web component progress bar for the page load status",
   "repository": "https://github.com/BrightspaceUILabs/page-load-progress.git",
   "publishConfig": {
