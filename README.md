@@ -2,7 +2,6 @@
 
 [![NPM version](https://img.shields.io/npm/v/@brightspace-ui-labs/page-load-progress.svg)](https://www.npmjs.org/package/@brightspace-ui-labs/page-load-progress)
 [![NPM downloads](https://img.shields.io/npm/dt/@brightspace-ui-labs/page-load-progress.svg)](https://www.npmjs.com/package/@brightspace-ui-labs/page-load-progress)
-![Build status](https://github.com/BrightspaceUILabs/page-load-progress/workflows/CI/badge.svg)
 
 > Note: this is a ["labs" component](https://github.com/BrightspaceUI/guide/wiki/Component-Tiers). While functional, these tasks are prerequisites to promotion to BrightspaceUI "official" status:
 >
