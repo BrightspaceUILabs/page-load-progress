@@ -17,8 +17,8 @@
   "author": "D2L Corporation",
   "license": "Apache 2.0",
   "devDependencies": {
+    "@babel/eslint-parser": "^7",
     "@webcomponents/webcomponentsjs": "^2",
-    "babel-eslint": "^10",
     "eslint": "^7",
     "eslint-config-brightspace": "^0.13",
     "eslint-plugin-html": "^6",
