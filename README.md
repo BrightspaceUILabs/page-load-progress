@@ -32,11 +32,8 @@ npm install @brightspace-ui/page-load-progress
 
 ## Usage
 
-Include the [webcomponents.js](http://webcomponents.org/polyfills/) polyfill loader (for browsers who don't natively support web components), then include `d2l-page-load-progress.js`:
-
 ```html
-<head>
-  <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+<head>script>
   <script type="module" src="node_modules/@brightspace-ui/page-load-progress/d2l-page-load-progress.js"></script>
 </head>
 ```
