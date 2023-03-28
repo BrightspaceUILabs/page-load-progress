@@ -118,11 +118,11 @@ Polymer({
 	start: function() {
 		this._show();
 		this._toggle(false, false, 0);
-		setTimeout(function() {
+		setTimeout(() => {
 			if (this.__width === 0) {
 				this._toggle(true, false, 99);
 			}
-		}.bind(this), 100);
+		}, 100);
 	},
 
 	_autoStartChanged: function(newValue) {
@@ -136,7 +136,7 @@ Polymer({
 	},
 
 	_toggle: function(slow, fast, width) {
-		var div = this.$$('.d2l-page-load-progress-bar');
+		const div = this.$$('.d2l-page-load-progress-bar');
 		this.toggleClass(
 			'd2l-page-load-progress-slow',
 			slow,
@@ -148,7 +148,7 @@ Polymer({
 			div
 		);
 		this.__width = width;
-		div.style.transform = 'translate(-' + (100 - width) + '%,0)';
+		div.style.transform = `translate(-${(100 - width)}%,0)`;
 	},
 
 	_show: function() {

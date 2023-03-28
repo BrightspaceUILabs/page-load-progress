@@ -1,12 +1,14 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+		<link rel="stylesheet" href="/node_modules/@brightspace-ui/core/components/demo/styles.css" type="text/css">
 		<script type="module">
-			import '/node_modules/@brightspace-ui/core/components/demo/demo-page.js';
+			import '@brightspace-ui/core/components/demo/demo-page.js';
 			import '../d2l-page-load-progress.js';
 		</script>
+		<title>page-load-progress</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="UTF-8">
 	</head>
 	<body unresolved>
 		<d2l-demo-page page-title="d2l-page-load-progress">
@@ -27,11 +29,11 @@
 				<button id="start">Start</button>
 				<button id="finish">Finish</button>
 				<script>
-					var progress = document.getElementById('interactive');
-					document.getElementById('start').addEventListener('click', function() {
+					const progress = document.getElementById('interactive');
+					document.getElementById('start').addEventListener('click', () => {
 						progress.start();
 					});
-					document.getElementById('finish').addEventListener('click', function() {
+					document.getElementById('finish').addEventListener('click', () => {
 						progress.finish();
 					});
 				</script>

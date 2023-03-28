@@ -7,30 +7,20 @@
     "access": "public"
   },
   "scripts": {
-    "lint:js": "eslint . --ext .js,.html test/**/*.html demo/**/*.html",
-    "lint:wc": "polymer lint",
-    "lint": "npm run lint:wc && npm run lint:js",
-    "test": "npm run lint && npm run test:polymer:local",
-    "test:polymer:local": "polymer test --skip-plugin sauce",
-    "test:polymer:sauce": "polymer test --skip-plugin local"
+    "lint": "eslint . --ext .js,.html",
+    "start": "web-dev-server --app-index demo/index.html --node-resolve --open --watch",
+    "test": "npm run lint && npm run test:headless",
+    "test:headless": "web-test-runner --files \"./test/**/*.test.js\" --node-resolve"
   },
   "author": "D2L Corporation",
   "license": "Apache 2.0",
   "devDependencies": {
-    "@babel/core": "^7",
-    "@babel/eslint-parser": "^7",
+    "@open-wc/testing": "^3",
+    "@web/dev-server": "^0.1",
+    "@web/test-runner": "^0.15",
     "eslint": "^8",
-    "eslint-config-brightspace": "^0.16",
-    "eslint-plugin-html": "^6",
-    "eslint-plugin-sort-class-members": "^1",
-    "polymer-cli": "^1",
-    "wct-browser-legacy": "^1"
-  },
-  "resolutions": {
-    "inherits": "2.0.3",
-    "samsam": "1.1.3",
-    "supports-color": "3.1.2",
-    "type-detect": "1.0.0"
+    "eslint-config-brightspace": "^0.20",
+    "sinon": "^15"
   },
   "main": "d2l-page-load-progress.js",
   "dependencies": {
