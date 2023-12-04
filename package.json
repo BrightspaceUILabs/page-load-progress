@@ -15,12 +15,12 @@
   "author": "D2L Corporation",
   "license": "Apache 2.0",
   "devDependencies": {
-    "@open-wc/testing": "^3",
-    "@web/dev-server": "^0.1",
-    "@web/test-runner": "^0.15",
+    "@open-wc/testing": "^4",
+    "@web/dev-server": "^0.4",
+    "@web/test-runner": "^0.18",
     "eslint": "^8",
-    "eslint-config-brightspace": "^0.20",
-    "sinon": "^15"
+    "eslint-config-brightspace": "^0.25",
+    "sinon": "^17"
   },
   "main": "d2l-page-load-progress.js",
   "dependencies": {
