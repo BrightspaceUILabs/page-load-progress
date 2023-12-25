@@ -19,7 +19,7 @@
     "@web/dev-server": "^0.4",
     "@web/test-runner": "^0.18",
     "eslint": "^8",
-    "eslint-config-brightspace": "^0.25",
+    "eslint-config-brightspace": "^1.0",
     "sinon": "^17"
   },
   "main": "d2l-page-load-progress.js",
